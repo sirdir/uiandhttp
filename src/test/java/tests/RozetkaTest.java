@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -7,8 +8,12 @@ import org.testng.annotations.Test;
  */
 public class RozetkaTest extends BaseTest {
 
-    @Test
-    public void repliesAndRatingForAlco(){
-
+    @Test(dataProvider = "idCommentsQuantityRating")
+    public void repliesAndRatingForAlco(int id, int expCommentsQuantity, int expRating){
+//        app.getSearchHelper().searchById(id);
+//        app.getItemHelper().getPrice();
+//        Assert.assertEquals(app.getItemHelper().getCommentQuantity(), expCommentsQuantity);
+//        Assert.assertEquals(app.getItemHelper().getRating(), expRating);
+        // <script>dataLayer\.push\(.{1,}\);<\/script>
     }
 }
