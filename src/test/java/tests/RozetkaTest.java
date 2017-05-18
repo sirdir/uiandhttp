@@ -11,7 +11,7 @@ public class RozetkaTest extends BaseTest {
     @Test(dataProvider = "idCommentsQuantityRating")
     public void repliesAndRatingForAlco(long id, int expCommentsQuantity, int expRating){
         app.getSearchHelper().searchById(id);
-        app.getItemHelper().getPrice();
+        System.out.println(app.getItemHelper().getPrice()); //todo need addition requirements what to do with this
         Assert.assertEquals(app.getItemHelper().getCommentQuantity(), expCommentsQuantity);
         Assert.assertEquals(app.getItemHelper().getRating(), expRating);
     }
