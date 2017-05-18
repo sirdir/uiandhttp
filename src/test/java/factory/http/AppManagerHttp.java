@@ -12,6 +12,8 @@ public class AppManagerHttp implements AppManager {
     private ItemHelper itemHelper;
     private SearchHelper searchHelper;
 
+    public static String ITEM_URL;
+
     public AppManagerHttp(){
         itemHelper = new ItemHelperHttp();
         searchHelper = new SearchHelperHttp();

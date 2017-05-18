@@ -5,8 +5,6 @@ package factory.interfaces;
  */
 public interface ItemHelper {
 
-    String ROZETKA_ITEM_REGEXP = "<script>dataLayer\\.push\\(.{1,}\\);<\\/script>";
-
     String getUsdPrice();
 
     Integer getReviewCountStars();

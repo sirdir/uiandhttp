@@ -11,11 +11,12 @@ import org.testng.annotations.*;
 public class BaseTest {
 
     AppManager app;
+    public static final String BASE_URL = "http://rozetka.com.ua";
 
     @BeforeClass(alwaysRun = true)
     public void beforeClass(){
         String appType = System.getProperty("app.type");
-        switch (appType != null ? appType : "drv"){
+        switch (appType != null ? appType : "http"){
             default:
             case "http":
                 app = new AppManagerHttp();
