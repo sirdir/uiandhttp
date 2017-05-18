@@ -26,4 +26,9 @@ public class AppManagerHttp implements AppManager {
     public SearchHelper getSearchHelper() {
         return searchHelper;
     }
+
+    @Override
+    public void tearDown() {
+        //todo
+    }
 }

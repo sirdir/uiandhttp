@@ -7,7 +7,7 @@ import factory.interfaces.SearchHelper;
  */
 public class SearchHelperHttp implements SearchHelper {
     @Override
-    public void searchById(long id) {
+    public void searchById(Long id) {
 
     }
 }

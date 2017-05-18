@@ -6,4 +6,5 @@ package factory.interfaces;
 public interface AppManager {
     ItemHelper getItemHelper();
     SearchHelper getSearchHelper();
+    void tearDown();
 }

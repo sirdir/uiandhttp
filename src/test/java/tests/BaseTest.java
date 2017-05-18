@@ -15,7 +15,7 @@ public class BaseTest {
     @BeforeClass(alwaysRun = true)
     public void beforeClass(){
         String appType = System.getProperty("app.type");
-        switch (appType != null ? appType : "http"){
+        switch (appType != null ? appType : "drv"){
             default:
             case "http":
                 app = new AppManagerHttp();
@@ -24,6 +24,12 @@ public class BaseTest {
                 app = new AppManagerDrv();
                 break;
         }
+    }
+
+    @AfterClass(alwaysRun = true)
+    public void cleanUp(){
+        if (app != null)
+            app.tearDown();
     }
 
     @DataProvider

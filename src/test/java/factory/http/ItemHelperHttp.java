@@ -8,17 +8,16 @@ import factory.interfaces.ItemHelper;
 public class ItemHelperHttp implements ItemHelper {
     @Override
     public String getUsdPrice() {
-        // <script>dataLayer\.push\(.{1,}\);<\/script>
         return null;
     }
 
     @Override
-    public int getCommentQuantity() {
+    public Integer getReviewCountStars() {
         return 0;
     }
 
     @Override
-    public int getRating() {
+    public Integer getRating() {
         return 0;
     }
 }
