@@ -1,25 +1,35 @@
 package tests;
 
-import io.github.bonigarcia.wdm.ChromeDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+import factory.drv.AppManagerDrv;
+import factory.http.AppManagerHttp;
+import factory.interfaces.AppManager;
+import org.testng.annotations.*;
 
 /**
  * Created by sirdir on 18.05.17.
  */
 public class BaseTest {
 
-    WebDriver driver;
+    AppManager app;
 
-    @BeforeSuite
-    public void setUp(){
-        ChromeDriverManager.getInstance().setup();
+    @BeforeClass(alwaysRun = true)
+    public void beforeClass(){
+        String appType = System.getProperty("app.type");
+        switch (appType != null ? appType : "http"){
+            default:
+            case "http":
+                app = new AppManagerHttp();
+                break;
+            case "drv":
+                app = new AppManagerDrv();
+                break;
+        }
     }
 
-    @BeforeClass
-    public void beforeClass(){
-        driver = new ChromeDriver();
+    @DataProvider
+    public static Object[][] idCommentsQuantityRating() {
+        return new Object[][]{
+                {5000299223017L, 49, 5}
+        };
     }
 }
