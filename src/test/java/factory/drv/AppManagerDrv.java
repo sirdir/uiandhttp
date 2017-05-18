@@ -1,5 +1,7 @@
 package factory.drv;
 
+import factory.Browser;
+import factory.DriverFactory;
 import factory.interfaces.AppManager;
 import factory.interfaces.ItemHelper;
 import factory.interfaces.SearchHelper;
@@ -19,7 +21,7 @@ public class AppManagerDrv implements AppManager {
 
     public AppManagerDrv(){
         ChromeDriverManager.getInstance().setup();
-        driver = new ChromeDriver();//todo maybe another fabric for diff browsers?
+        driver = DriverFactory.getBrowser(Browser.CHROME);
         driver.manage().window().maximize();
         itemHelper = new ItemHelperDrv(driver);
         searchHelper = new SearchHelperDrv(driver);
