@@ -18,7 +18,7 @@ public class ItemHelperDrv implements ItemHelper {
     @Override
     public String getUsdPrice() {
         String pageSource = driver.getPageSource();
-        return Parser.rozetkaHiddenItem(pageSource, "$.productPriceLocal");
+        return Parser.rozetkaHiddenItem(pageSource, "$.productPrice");
     }
 
     @Override

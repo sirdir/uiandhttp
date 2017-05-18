@@ -18,7 +18,7 @@ public class ItemHelperHttp implements ItemHelper {
     @Override
     public String getUsdPrice() {
         Response pageSource = get(ITEM_URL);
-        return Parser.rozetkaHiddenItem(pageSource.getBody().asString(), "$.productPriceLocal");
+        return Parser.rozetkaHiddenItem(pageSource.getBody().asString(), "$.productPrice");
     }
 
     @Override
