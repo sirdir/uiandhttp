@@ -24,7 +24,7 @@ public class ItemHelperHttp implements ItemHelper {
     @Override
     public Integer getReviewCountStars() {
         Response response = get(ITEM_URL);
-                                            String productId = Parser.rozetkaHiddenItem(response.getBody().asString(), "$.productID");
+        String productId = Parser.rozetkaHiddenItem(response.getBody().asString(), "$.productID");
         response = get(BASE_URL + "/recent_goods_sync/action=getRecentGoods;goods_ids=" + productId + "/");
         String json = response.getBody().asString();
         String countComments = JsonPath.read(json, "$.content[0].count_comments");
