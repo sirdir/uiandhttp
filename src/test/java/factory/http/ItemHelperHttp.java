@@ -7,7 +7,7 @@ import factory.interfaces.ItemHelper;
  */
 public class ItemHelperHttp implements ItemHelper {
     @Override
-    public String getPrice() {
+    public String getUsdPrice() {
         // <script>dataLayer\.push\(.{1,}\);<\/script>
         return null;
     }

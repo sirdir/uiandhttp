@@ -5,7 +5,7 @@ package factory.interfaces;
  */
 public interface ItemHelper {
 
-    String getPrice();
+    String getUsdPrice();
 
     int getCommentQuantity();
 
