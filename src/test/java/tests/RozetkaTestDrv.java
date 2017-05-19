@@ -35,7 +35,7 @@ public class RozetkaTestDrv extends BaseTest {
 
     @Test(dataProvider = "idCommentsQuantityRating")
     public void repliesAndRatingForAlco(Long id, Integer expCommentsQuantity, Integer expRating){
-        driver.get("http://rozetka.com.ua/");
+        driver.get(BASE_URL);
         MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
         ItemPage itemPage = mainPage.searchById(id);
 
