@@ -25,7 +25,7 @@ public class RozetkaTestHttp extends BaseTest {
 
         String productId = Parser.rozetkaHiddenItem(itemPage, "$.productID");
 
-        Response response = get(BASE_URL + "/recent_goods_sync/action=getRecentGoods;goods_ids=" + productId + "/");
+        Response response = get(BASE_URL + "/recent_goods/action=getRecentGoods;goods_ids=" + productId + "/");
         String json = response.getBody().asString();
 
         String countCommentsStr = JsonPath.read(json, "$.content[0].count_comments");
