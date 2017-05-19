@@ -15,7 +15,7 @@ public class BaseTest {
 
     @BeforeClass(alwaysRun = true)
     public void beforeClass(){
-        String appType = System.getProperty("app.type");
+        String appType = System.getProperty("type");
         switch (appType != null ? appType : "http"){
             default:
             case "http":
