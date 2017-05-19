@@ -11,7 +11,7 @@ def groupsToRun(){
     try{
         return "$type"
     }catch (MissingPropertyException e){
-        return 'drv'
+        return 'http'
     }
 }
 
