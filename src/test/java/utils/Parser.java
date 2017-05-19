@@ -22,18 +22,4 @@ public class Parser {
         }
         return null;
     }
-
-    public static Integer rozetkaDirtyRegexp(String regexp, String str){
-        Pattern pattern = Pattern.compile(regexp);
-        Matcher matcher = pattern.matcher(str);
-        if (matcher.find()){
-            String match = matcher.group(0);
-            pattern = Pattern.compile("\\d{1,4}");
-            matcher = pattern.matcher(match);
-            if (matcher.find()){
-                return Integer.valueOf(matcher.group(0));
-            }
-        }
-        return null;
-    }
 }
