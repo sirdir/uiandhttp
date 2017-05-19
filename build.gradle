@@ -7,8 +7,12 @@ sourceCompatibility = 1.8
 
 repositories.jcenter()
 
-def groupsToRun(type = 'http'){
-    "${type}"
+def groupsToRun(){
+    try{
+        return "$type"
+    }catch (MissingPropertyException e){
+        return 'drv'
+    }
 }
 
 test {

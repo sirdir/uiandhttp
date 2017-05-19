@@ -4,10 +4,13 @@ import factory.Browser;
 import factory.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import pages.ItemPage;
+import pages.MainPage;
 import utils.Parser;
 
 /**
@@ -20,7 +23,7 @@ public class RozetkaTestDrv extends BaseTest {
 
     @BeforeClass(alwaysRun = true)
     public void setupBrowser(){
-        driver = DriverFactory.getBrowser(Browser.CHROME); //todo hardcode -> param
+        driver = DriverFactory.getBrowser(Browser.CHROME);
         driver.manage().window().maximize();
     }
 
@@ -33,20 +36,14 @@ public class RozetkaTestDrv extends BaseTest {
     @Test(dataProvider = "idCommentsQuantityRating")
     public void repliesAndRatingForAlco(Long id, Integer expCommentsQuantity, Integer expRating){
         driver.get("http://rozetka.com.ua/");
-        driver.findElement(By.cssSelector("input.rz-header-search-input-text")).sendKeys(id.toString());
-        driver.findElement(By.name("rz-search-button")).click();
+        MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
+        ItemPage itemPage = mainPage.searchById(id);
 
-        String pageSource = driver.getPageSource();
-        String usdPrice = Parser.rozetkaHiddenItem(pageSource, "$.productPrice");
+        String usdPrice = itemPage.getUsdPrice();
         System.out.println("price for article with id " + id + " is " + usdPrice + "$");
 
-        By cssSelector1 = By.cssSelector("span[itemprop='aggregateRating']>meta[itemprop='reviewCount']");
-        String countCommentsStr = driver.findElement(cssSelector1).getAttribute("content");
-        Integer countComments = Integer.valueOf(countCommentsStr);
-
-        By cssSelector2 = By.cssSelector("span[itemprop='aggregateRating']>meta[itemprop='ratingValue']");
-        String userRatingStr = driver.findElement(cssSelector2).getAttribute("content");
-        Integer userRating = Integer.valueOf(userRatingStr);
+        Integer countComments = itemPage.getCounterComments();
+        Integer userRating = itemPage.getUserRating();
 
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(countComments, expCommentsQuantity, "review count ");
