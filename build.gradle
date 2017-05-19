@@ -7,12 +7,20 @@ sourceCompatibility = 1.8
 
 repositories.jcenter()
 
+def groupsToRun(){
+    try{
+        return "$type"
+    }catch (MissingPropertyException e){
+        return 'drv'
+    }
+}
 
 test {
-    useTestNG()
+    useTestNG(){
+        includeGroups(groupsToRun())
+    }
     testLogging.showStandardStreams = true
     include 'tests/**'
-    systemProperties System.properties
 }
 
 dependencies {
