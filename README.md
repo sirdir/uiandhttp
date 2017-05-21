@@ -12,7 +12,7 @@
    <strong>
     <code>./gradlew test -Ptype=%sometype%</code>
    </strong>
-   на Unix подоных
+   на Unix подобных
    </p>
   </li>
   <li>
