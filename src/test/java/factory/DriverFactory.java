@@ -20,9 +20,9 @@ public class DriverFactory {
             case FIREFOX:
                 return initFirefox();
             case EDGE:
-                return initFirefox();
+                return initEdge();
             case IE:
-                return initFirefox();
+                return initIe();
         }
     }
 

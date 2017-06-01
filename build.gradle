@@ -10,7 +10,7 @@ repositories.jcenter()
 def groupsToRun(){
     try{
         return "$type"
-    }catch (MissingPropertyException e){
+    }catch (MissingPropertyException ignored){
         return 'http'
     }
 }
@@ -29,4 +29,5 @@ dependencies {
     testCompile 'io.github.bonigarcia:webdrivermanager:1.6.2'
     testCompile 'com.jayway.jsonpath:json-path:2.2.0'
     testCompile 'io.rest-assured:rest-assured:3.0.3'
+    testCompile 'org.jsoup:jsoup:1.10.2'
 }

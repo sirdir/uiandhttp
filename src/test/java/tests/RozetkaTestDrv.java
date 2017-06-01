@@ -2,7 +2,6 @@ package tests;
 
 import factory.Browser;
 import factory.DriverFactory;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
@@ -11,7 +10,6 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.ItemPage;
 import pages.MainPage;
-import utils.Parser;
 
 /**
  * Created by sirdir on 18.05.17.
